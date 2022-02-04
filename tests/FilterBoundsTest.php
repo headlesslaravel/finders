@@ -3,13 +3,11 @@
 namespace HeadlessLaravel\Finders\Tests;
 
 use HeadlessLaravel\Finders\Tests\Fixtures\Models\Post;
-use HeadlessLaravel\Finders\Tests\Fixtures\PostFormation;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Support\Facades\Route;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class FilterBoundsTest extends TestCase
 {
-    use RefreshDatabase;
+    use DatabaseTransactions;
 
     public function test_filtering_bounds_north_west()
     {

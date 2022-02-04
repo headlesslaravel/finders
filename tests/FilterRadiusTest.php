@@ -3,10 +3,13 @@
 namespace HeadlessLaravel\Finders\Tests;
 
 use HeadlessLaravel\Finders\Tests\Fixtures\Models\Post;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class FilterRadiusTest extends TestCase
 {
     protected $useMysql = true;
+
+    use DatabaseTransactions;
 
     public function setUp(): void
     {

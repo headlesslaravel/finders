@@ -3,11 +3,11 @@
 namespace HeadlessLaravel\Finders\Tests;
 
 use HeadlessLaravel\Finders\Filter;
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class FilterRuleTest extends TestCase
 {
-    use RefreshDatabase;
+    use DatabaseTransactions;
 
     public function test_rule_appending()
     {

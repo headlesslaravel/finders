@@ -9,12 +9,14 @@ use HeadlessLaravel\Finders\Tests\Fixtures\Models\Comment;
 use HeadlessLaravel\Finders\Tests\Fixtures\Models\Like;
 use HeadlessLaravel\Finders\Tests\Fixtures\Models\Post;
 use HeadlessLaravel\Finders\Tests\Fixtures\Models\Tag;
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Support\Facades\Route;
 
 class FilterTest extends TestCase
 {
-    use RefreshDatabase;
+//    use RefreshDatabase;
+
+    use DatabaseTransactions;
 
     public function test_no_parameters()
     {
