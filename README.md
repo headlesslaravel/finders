@@ -7,6 +7,9 @@ Search, sort & filter url query string parameters for model indexes.
 [![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/headlesslaravel/finders/Check%20&%20fix%20styling?label=code%20style)](https://github.com/headlesslaravel/finders/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/headlesslaravel/finders.svg?style=flat-square)](https://packagist.org/packages/headlesslaravel/finders)
 
+
+[Read the finders documentation](https://github.com/headlesslaravel/docs/blob/main/finders.md)
+
 ---
 
 ## Installation
@@ -19,7 +22,7 @@ Or install the package independently via composer:
 composer require headlesslaravel/finders
 ```
 
-[Read the documentation](https://github.com/headlesslaravel/docs/blob/main/finders.md)
+Read about using this package standalone [here](https://github.com/headlesslaravel/docs/blob/main/finders.md#standalone)
 
 ## License
 
