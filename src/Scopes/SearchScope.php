@@ -14,8 +14,12 @@ class SearchScope
      *
      * @return Builder
      */
-    public function apply($query, $columns, $term)
+    public function apply($query, array $columns, $term)
     {
+        if(count($columns) === 0) {
+            return $query;
+        }
+
         return $query->where(function ($query) use ($columns, $term) {
             foreach ($columns as $column) {
                 if (Str::contains($column, '.')) {
