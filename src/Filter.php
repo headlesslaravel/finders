@@ -50,6 +50,13 @@ class Filter
     public $rules = [];
 
     /**
+     * Hidden from frontend.
+     *
+     * @var boolean
+     */
+    public $hidden = false;
+
+    /**
      * The query callbacks.
      *
      * @var array
@@ -734,6 +741,18 @@ class Filter
     public function auth()
     {
         $this->authenticated = true;
+
+        return $this;
+    }
+
+    /**
+     * Make filter hidden from frontend.
+     *
+     * @return $this
+     */
+    public function hidden()
+    {
+        $this->hidden = true;
 
         return $this;
     }
