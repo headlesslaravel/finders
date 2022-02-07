@@ -68,7 +68,7 @@ class Filter
      *
      * @var array
      */
-    protected $modifiers = [];
+    public $modifiers = [];
 
     /**
      * The active modifier(s).
@@ -1039,6 +1039,10 @@ class Filter
     {
         $this->modifier('min');
         $this->modifier('max');
+
+        $this->component('FilterRange');
+
+        $this->props(['type' => 'number']);
 
         $minRules = ['nullable', 'numeric', function ($attribute, $value, $fail) {
             if ($this->request->filled("{$this->publicKey}:max")
