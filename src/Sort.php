@@ -28,11 +28,11 @@ class Sort
 
         $this->internal = is_null($internal) ? $key : $internal;
 
-        if(Str::contains($this->key, '.')) {
+        if (Str::contains($this->key, '.')) {
             abort(500, "$this->key needs an alias: Sort::make('alias', 'some.relation')");
         }
 
-        if(Str::contains($this->internal, '.')) {
+        if (Str::contains($this->internal, '.')) {
             $this->relationship = Str::before($this->internal, '.');
             $this->column = Str::after($this->internal, '.');
         } else {
@@ -75,4 +75,3 @@ class Sort
         return $query;
     }
 }
-
