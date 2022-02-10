@@ -2,7 +2,6 @@
 
 namespace HeadlessLaravel\Finders\Tests\Fixtures\Models;
 
-use HeadlessLaravel\Finders\Filterable;
 use HeadlessLaravel\Finders\Tests\Fixtures\Database\Factories\PostFactory;
 use HeadlessLaravel\Finders\Traits\Findable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;

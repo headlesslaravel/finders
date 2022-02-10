@@ -52,7 +52,7 @@ class Filter
     /**
      * Hidden from frontend.
      *
-     * @var boolean
+     * @var bool
      */
     public $hidden = false;
 
@@ -1035,15 +1035,15 @@ class Filter
      */
     public function isActive()
     {
-        if(is_array($this->publicKey)) {
+        if (is_array($this->publicKey)) {
             $keys = $this->publicKey;
         } else {
             $keys = [$this->publicKey];
         }
 
-        if(count($this->modifiers)) {
+        if (count($this->modifiers)) {
             $keys = [];
-            foreach($this->modifiers as $modifier) {
+            foreach ($this->modifiers as $modifier) {
                 $keys[] = "$this->publicKey:$modifier";
             }
         }
@@ -1079,5 +1079,21 @@ class Filter
 
         $this->withRules($minRules, "$this->publicKey:min");
         $this->withRules($maxRules, "$this->publicKey:max");
+    }
+
+    /**
+     * Get the frontend payload.
+     *
+     * @return array
+     */
+    public function meta(): array
+    {
+        return [
+            'key'       => $this->publicKey,
+            'display'   => $this->getDisplay(),
+            'component' => $this->component,
+            'props'     => $this->props,
+            'modifiers' => $this->modifiers,
+        ];
     }
 }

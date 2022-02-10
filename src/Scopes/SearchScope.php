@@ -16,7 +16,7 @@ class SearchScope
      */
     public function apply($query, array $columns, $term)
     {
-        if(count($columns) === 0) {
+        if (count($columns) === 0) {
             return $query;
         }
 

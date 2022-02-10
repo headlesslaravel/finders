@@ -10,17 +10,17 @@ class ApplySearch
 {
     public static function on(Builder $query, array $searchers, $term = null)
     {
-        if(! is_null($term)) {
+        if (!is_null($term)) {
             Request::replace(['search' => $term]);
         }
 
-        if(!Request::has('search')) {
+        if (!Request::has('search')) {
             return;
         }
 
         $columns = [];
 
-        foreach($searchers as $search) {
+        foreach ($searchers as $search) {
             $columns[] = $search->internal;
         }
 
