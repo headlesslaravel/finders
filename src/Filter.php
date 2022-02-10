@@ -1080,4 +1080,20 @@ class Filter
         $this->withRules($minRules, "$this->publicKey:min");
         $this->withRules($maxRules, "$this->publicKey:max");
     }
+
+    /**
+     * Get the frontend payload.
+     *
+     * @return array
+     */
+    public function meta(): array
+    {
+        return [
+            'key'       => $this->publicKey,
+            'display'   => $this->getDisplay(),
+            'component' => $this->component,
+            'props'     => $this->props,
+            'modifiers' => $this->modifiers,
+        ];
+    }
 }
