@@ -178,7 +178,7 @@ class Filter
             return implode(', ', $this->publicKey);
         }
 
-        return Str::of($this->publicKey)->replace('_', ' ')->title();
+        return (string) Str::of($this->publicKey)->replace('_', ' ')->title();
     }
 
     /**
