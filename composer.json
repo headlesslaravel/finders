@@ -38,6 +38,13 @@
             "HeadlessLaravel\\Finders\\Tests\\": "tests"
         }
     },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "HeadlessLaravel\\Finders\\FindersProvider"
+            ]
+        }
+    },
     "scripts": {
         "test": "./vendor/bin/phpunit --no-coverage",
         "test-coverage": "./vendor/bin/phpunit --coverage-html coverage",

@@ -134,6 +134,13 @@ class Filter
     public $filterMethodCalled = false;
 
     /**
+     * The query per page.
+     *
+     * @var
+     */
+    public $perPage;
+
+    /**
      * Make a filter instance.
      *
      * @param $public
@@ -1095,5 +1102,10 @@ class Filter
             'props'     => $this->props,
             'modifiers' => $this->modifiers,
         ];
+    }
+
+    public function per($per = [])
+    {
+        $this->perPage = $per;
     }
 }

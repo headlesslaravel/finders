@@ -13,6 +13,7 @@ class ApplyFilters
             Request::replace($values);
         }
 
+        /** @var Filter $filter */
         foreach ($filters as $filter) {
             $filter->setRequest(Request::instance());
 
