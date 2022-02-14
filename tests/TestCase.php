@@ -3,6 +3,7 @@
 namespace HeadlessLaravel\Finders\Tests;
 
 use HeadlessLaravel\Finders\Filter;
+use HeadlessLaravel\Finders\FindersProvider;
 use HeadlessLaravel\Finders\Search;
 use HeadlessLaravel\Finders\Sort;
 use HeadlessLaravel\Finders\Tests\Fixtures\Models\Post;
@@ -81,6 +82,8 @@ class TestCase extends Orchestra
                     Filter::radius(),
 
                     Filter::bounds(),
+
+                    Filter::make('per_page')->per(),
                 ])
                 ->paginate();
         });
@@ -90,6 +93,7 @@ class TestCase extends Orchestra
     {
         return [
             RayServiceProvider::class,
+            FindersProvider::class,
         ];
     }
 

@@ -5,10 +5,10 @@ namespace HeadlessLaravel\Finders;
 use HeadlessLaravel\Finders\Exceptions\ReservedException;
 use HeadlessLaravel\Finders\Exceptions\UnauthorizedException;
 use HeadlessLaravel\Finders\Scopes\SearchScope;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Carbon;
-use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 
@@ -138,7 +138,7 @@ class Filter
      *
      * @var
      */
-    public $perPage;
+    public $per;
 
     /**
      * Make a filter instance.
@@ -865,7 +865,7 @@ class Filter
     /**
      * Apply the filters to the query.
      *
-     * @param $query
+     * @param Builder $query
      */
     public function apply($query)
     {
@@ -877,6 +877,12 @@ class Filter
 
         if ($this->authenticated && !auth()->check()) {
             throw new UnauthorizedException();
+        }
+
+        if (!empty($this->per)) {
+            $query->getModel()->setPerPage($this->value);
+            $this->query = $query;
+            return;
         }
 
         if (!$this->filterMethodCalled) {
@@ -1104,8 +1110,23 @@ class Filter
         ];
     }
 
-    public function per($per = [])
+    public function per($per = []): self
     {
-        $this->perPage = $per;
+        if (empty($per)) {
+            $per = config('headless-finders.filters.per');
+        }
+
+        $this->per = $per;
+        $max = Arr::last($this->per);
+
+        $this->withRules('min:0|max:'.$max);
+
+        $this->component('FilterSelect');
+
+        $this->props([
+            'options' => $this->per,
+        ]);
+
+        return $this;
     }
 }

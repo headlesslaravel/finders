@@ -656,4 +656,14 @@ class FilterTest extends TestCase
             ->assertJsonCount(1, 'data')
             ->assertJsonPath('data.0.id', $two->id);
     }
+
+    public function test_per_page()
+    {
+        Post::factory(4)->create();
+
+        $this->get('/posts?per_page=2')
+            ->assertJsonCount(2, 'data')
+            ->assertJsonPath('last_page', 2)
+            ->assertJsonPath('total', 4);
+    }
 }
