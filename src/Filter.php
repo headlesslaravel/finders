@@ -882,6 +882,7 @@ class Filter
         if (!empty($this->per)) {
             $query->getModel()->setPerPage($this->value);
             $this->query = $query;
+
             return;
         }
 
