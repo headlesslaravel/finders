@@ -492,6 +492,8 @@ class Filter
     {
         $this->withRules('nullable');
 
+        $this->component('FilterPicker');
+
         $this->withQuery(function ($query) {
             $this->validateMultiple();
 
